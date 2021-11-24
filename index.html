@@ -336,7 +336,7 @@
 <p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/104" class="uri">https://codeforces.com/problemsets/acmsguru/problem/99999/104</a></p>
 <h2 id="解题思路">解题思路</h2>
 <p>动态规划</p>
-<p>由题意可知，后一个状态跟前一个状态有关吗，所以想到了动态规划</p>
+<p>由题意可知，后一个状态跟前一个状态有关，所以想到了动态规划</p>
 <p>第i束花从第i个花瓶开始放，可的状态转移方程<span class="math inline">\(dp[i][j]=max(dp[i-1][j-1]+cost[i][j],dp[i][j-1] )\)</span></p>
 <p>用<span class="math inline">\(path\)</span>记录路径，每行的最后一个不为<span class="math inline">\(0\)</span>的元素下标即是花瓶的序号,因为每层是从左往右遍历的</p>
 <h2 id="动态规划">动态规划</h2>
