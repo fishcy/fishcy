@@ -731,6 +731,8 @@
 <p>与<span class="math inline">\(补码\)</span>相同</p>
 <h3 id="浮点数的机器数">3.2 浮点数的机器数</h3>
 <h4 id="ieee754标准32位">IEEE754标准32位</h4>
+<p>阶码为移码，偏移值要减1</p>
+<p>尾数为原码</p>
 <h5 id="格式">格式</h5>
 <p><span class="math inline">\(M_{s}\)</span> <span class="math inline">\(E_{s}\)</span> <span class="math inline">\(E_{1}E_{2}\cdots E_{m}\)</span> <span class="math inline">\(.\)</span> <span class="math inline">\(M_{1}M_{2}\cdots M_{n}\)</span></p>
 <p>数符 阶符 阶码数值 尾数数值</p>
@@ -738,6 +740,24 @@
 <h5 id="真值计算">真值计算</h5>
 <p><span class="math inline">\(N=(-1)^{M_{s}}\times (1.M_{1}M_{2}\cdots M_{n})\times 2^{E-127}\)</span></p>
 <p>其中<span class="math inline">\(E\)</span>为阶码的无符号真值</p>
+<h4 id="自定义格式下浮点数规格化的表示方法">自定义格式下浮点数规格化的表示方法</h4>
+<h5 id="原码-1">原码</h5>
+<p>原码表示的尾数，当最高有效位<span class="math inline">\(（M_{1}）\)</span>为<span class="math inline">\(1\)</span>时，浮点数规格化，即尾数为<span class="math inline">\(X.1X\cdots X\)</span></p>
+<h5 id="补码-1">补码</h5>
+<p>补码表示的尾数，当符号位<span class="math inline">\(（M_{S}）\)</span>与最高有效位<span class="math inline">\(（M_{1}）\)</span>相异时，浮点数规格化，即尾数为<span class="math inline">\(0.1X\cdots X\)</span>或<span class="math inline">\(1.0X\cdots X\)</span></p>
+<p>当符号位与最高有效位相同时，必须左规</p>
+<h4 id="自定义格式下浮点数规格化非规格化表示描述的浮点数真值范围">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</h4>
+<p>阶码为移码，尾数为补码</p>
+<h5 id="规格化表示范围">规格化表示范围</h5>
+<p>最小数 <span class="math inline">\(-1\times2^{31}=-2^{31}\)</span> <span class="math inline">\(1,11111\quad 1.000000000\)</span></p>
+<p>最大负数 <span class="math inline">\(-(2^{-1}+2^{-9}\times2^{-32})\)</span> <span class="math inline">\(0,00000\quad 1.011111111\)</span></p>
+<p>最小正数 <span class="math inline">\(2^{-1}\times2^{-32}=2^{-33}\)</span> <span class="math inline">\(0,00000\quad 0.100000000\)</span></p>
+<p>最大数 <span class="math inline">\((1-2^{-9}\times2^{31})\)</span> <span class="math inline">\(1,11111\quad 0.111111111\)</span></p>
+<h5 id="非规格化表示范围">非规格化表示范围</h5>
+<p>最小数 <span class="math inline">\(-1\times2^{31}=-2^{31}\)</span> <span class="math inline">\(1,11111\quad 1.000000000\)</span></p>
+<p>最大负数 <span class="math inline">\(-2^{-9}\times2^{-32}=-2^{-41}\)</span> <span class="math inline">\(0,00000\quad 1.111111111\)</span></p>
+<p>最小正数 <span class="math inline">\(2^{-9}\times2^{-32}=2^{-41}\)</span> <span class="math inline">\(0,00000\quad 0.000000001\)</span></p>
+<p>最大数 <span class="math inline">\((1-2^{-9}\times2^{31})\)</span> <span class="math inline">\(1,11111\quad 0.111111111\)</span></p>
 
           
         
