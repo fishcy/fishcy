@@ -390,7 +390,7 @@
 <h4 id="结构一-1">结构一</h4>
 <ul>
 <li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，结果\rightarrow LC：通过发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow LC来实现\)</span></li>
-<li><span class="math inline">\((LC)\rightarrow R_k：通过发送信号LC\rightarrow IB1、IB1\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k：通过发送信号LC\rightarrow IB1、IB1\rightarrow R_k来实现\)</span></li>
 </ul>
 <h4 id="结构二-1">结构二</h4>
 <ul>
@@ -404,6 +404,13 @@
 <ul>
 <li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，IB3\rightarrow R_k：需要发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow IB3、IB3\rightarrow R_k\)</span></li>
 </ul>
+<h2 id="定点运算器结构中暂存器-lalc-和缓冲器的作用及更换后的工作过程判断">定点运算器结构中暂存器 LA、LC 和缓冲器的作用及更换后的工作过程判断</h2>
+<ul>
+<li>缓冲器、LA更换为LC，可以正常工作，因为LC可以控制输出</li>
+<li>缓冲器更换成LA，不能正常工作，因为LA会一直占用数据总线</li>
+</ul>
+<h1 id="浮点数加法减法的运算">浮点数加法/减法的运算</h1>
+<h2 id="自定义规格化表示的浮点数运算的5个经典步骤">自定义规格化表示的浮点数运算的5个经典步骤</h2>
 
           
         
