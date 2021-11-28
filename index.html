@@ -258,7 +258,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/11/27/chapter4/" itemprop="url">第四章 定点整数的运算</a></h1>
+                <a class="post-title-link" href="/2021/11/27/chapter4/" itemprop="url">第四章</a></h1>
         
 
         <div class="post-meta">
@@ -332,39 +332,41 @@
       
         
           
-            <h4 id="补码加减运算公式">补码加减运算公式</h4>
+            <h1 id="定点整数的运算">定点整数的运算</h1>
+<h2 id="补码加减运算公式">补码加减运算公式</h2>
 <p><span class="math inline">\([X+Y]_补=[X]_补+[Y]_补\quad (mod\quad 2^{n+1})\)</span></p>
 <p><span class="math inline">\([X-Y]_补=[X]_补+[-Y]_补\quad (mod\quad 2^{n+1})\)</span></p>
 <p>若<span class="math inline">\([Y]_补=Y_0,Y_1\cdots Y_n\)</span>，则<span class="math inline">\([-Y]_补=\overline Y_0\overline Y_1\cdots \overline Y_n+1\)</span></p>
 <p>若<span class="math inline">\([Y]_补=Y_0.Y_1\cdots Y_n\)</span>，则<span class="math inline">\([-Y]_补=\overline Y_0\overline Y_1\cdots \overline Y_n+0.0\cdots01\)</span></p>
-<h4 id="定点数加法减法的运算方法的溢出检测判断">定点数加法/减法的运算方法的溢出检测判断</h4>
-<h5 id="进位判溢方法">进位判溢方法</h5>
+<h2 id="定点数加法减法的运算方法的溢出检测判断">定点数加法/减法的运算方法的溢出检测判断</h2>
+<h3 id="进位判溢方法">进位判溢方法</h3>
 <p><span class="math inline">\(V=C_1\oplus C_f\)</span></p>
 <p>其中<span class="math inline">\(C_1\)</span>为最高有效位进位，<span class="math inline">\(C_f\)</span>为符号位进位</p>
 <p>当<span class="math inline">\(V\)</span>为<span class="math inline">\(1\)</span>时，即<span class="math inline">\(C_1\)</span>、<span class="math inline">\(C_f\)</span>不相同时，溢出</p>
-<h5 id="双符号位判溢方法">双符号位判溢方法</h5>
+<h3 id="双符号位判溢方法">双符号位判溢方法</h3>
 <p><span class="math inline">\(V=S_{f1}\oplus S_{f2}\)</span></p>
 <p>当<span class="math inline">\(V\)</span>为<span class="math inline">\(1\)</span>时，即<span class="math inline">\(S_{f1}\)</span>、<span class="math inline">\(S_{f2}\)</span>不相同时，溢出</p>
 <p>当<span class="math inline">\(S_{f1}S_{f2}=01\)</span>时，正溢出</p>
 <p>当<span class="math inline">\(S_{f1}S_{f2}=10\)</span>时，负溢出</p>
-<h4 id="逻辑位移">逻辑位移</h4>
+<h3 id="逻辑位移">逻辑位移</h3>
 <p>将数据视为<span class="math inline">\(无符号数据\)</span></p>
 <p>逻辑左移，高位移出，低位补<span class="math inline">\(0\)</span></p>
 <p>逻辑右移，低位移出，高位补<span class="math inline">\(0\)</span></p>
-<h4 id="算术移位">算术移位</h4>
+<h3 id="算术移位">算术移位</h3>
 <p>带符号的数据，符号位必须保持不变</p>
-<h5 id="原码">原码</h5>
+<h4 id="原码">原码</h4>
 <p>算术左移，符号位不变，高位移出，低位补<span class="math inline">\(0\)</span></p>
 <p>算术右移，符号位不变，低位移出，高位补<span class="math inline">\(0\)</span></p>
-<h5 id="补码">补码</h5>
+<h4 id="补码">补码</h4>
 <p>算术左移，符号位不变，高位移出，低位补<span class="math inline">\(0\)</span>（<span class="math inline">\(符号位\)</span>和<span class="math inline">\(最高有效位\)</span>不相同时溢出）</p>
 <p>算术右移，符号位不变，低位移出，高位补<span class="math inline">\(符号位\)</span></p>
-<h5 id="反码">反码</h5>
+<h4 id="反码">反码</h4>
 <p>算术左移，高位移出，低位补<span class="math inline">\(符号位\)</span></p>
 <p>算术右移，低位移出，高位补<span class="math inline">\(符号位\)</span></p>
-<h4 id="定点整数无符号阵列乘法器的原理">定点整数无符号阵列乘法器的原理</h4>
+<h3 id="定点整数无符号阵列乘法器的原理">定点整数无符号阵列乘法器的原理</h3>
 <p><span class="math inline">\(m\)</span>位<span class="math inline">\(\times\)</span><span class="math inline">\(n\)</span>位绝对值阵列乘法器共需要<span class="math inline">\(n\times m\)</span>个与门，<span class="math inline">\(n\times (m-1)\)</span>个全加器</p>
-<h4 id="定点运算器结构中暂存器">定点运算器结构中暂存器</h4>
+<h1 id="定点运算器的组成与结构">定点运算器的组成与结构</h1>
+<h2 id="三种不同总线结构下定点运算器的运算步骤">三种不同总线结构下定点运算器的运算步骤</h2>
 
           
         
