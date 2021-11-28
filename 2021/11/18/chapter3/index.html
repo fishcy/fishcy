@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="3.1 定点整数的机器数 机器数 数值数据在计算机中的表示形式称为\(机器数\) 特点 1.数值范围受计算机字长的限制 2.符号位用二进制的0或1表示 3.小数点用规定的隐含方式表达 原码、反码、补码、移码的定义 原码 最简单、最接近真值原型的一种表示方法 正号用\(0\)表示，负号用\(1\)表示，数值部分与\(绝对值\)一致 数学定义及计算方法 \[ [X]_{原}&#x3D;">
+<meta name="description" content="3.1 定点整数的机器数 机器数 数值数据在计算机中的表示形式称为$机器数$ 特点 1.数值范围受计算机字长的限制 2.符号位用二进制的0或1表示 3.小数点用规定的隐含方式表达 原码、反码、补码、移码的定义 原码 最简单、最接近真值原型的一种表示方法 正号用$0$表示，负号用$1$表示，数值部分与$绝对值$一致 数学定义及计算方法 $$ [X]_{原}&#x3D;\begin{cases} 0X&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三章">
 <meta property="og:url" content="https://fishcy.github.io/2021/11/18/chapter3/index.html">
 <meta property="og:site_name" content="fishcy的博客">
-<meta property="og:description" content="3.1 定点整数的机器数 机器数 数值数据在计算机中的表示形式称为\(机器数\) 特点 1.数值范围受计算机字长的限制 2.符号位用二进制的0或1表示 3.小数点用规定的隐含方式表达 原码、反码、补码、移码的定义 原码 最简单、最接近真值原型的一种表示方法 正号用\(0\)表示，负号用\(1\)表示，数值部分与\(绝对值\)一致 数学定义及计算方法 \[ [X]_{原}&#x3D;">
+<meta property="og:description" content="3.1 定点整数的机器数 机器数 数值数据在计算机中的表示形式称为$机器数$ 特点 1.数值范围受计算机字长的限制 2.符号位用二进制的0或1表示 3.小数点用规定的隐含方式表达 原码、反码、补码、移码的定义 原码 最简单、最接近真值原型的一种表示方法 正号用$0$表示，负号用$1$表示，数值部分与$绝对值$一致 数学定义及计算方法 $$ [X]_{原}&#x3D;\begin{cases} 0X&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-18T10:17:12.000Z">
 <meta property="article:modified_time" content="2021-11-27T16:59:05.528Z">
@@ -331,116 +331,116 @@
       
 
       
-        <h1 id="定点整数的机器数">3.1 定点整数的机器数</h1>
+        <h1>3.1 定点整数的机器数</h1>
 <h2 id="机器数">机器数</h2>
-<p>数值数据在计算机中的表示形式称为<span class="math inline">\(机器数\)</span></p>
+<p>数值数据在计算机中的表示形式称为$机器数$</p>
 <h3 id="特点">特点</h3>
 <p>1.数值范围受计算机字长的限制</p>
 <p>2.符号位用二进制的0或1表示</p>
 <p>3.小数点用规定的隐含方式表达</p>
-<h2 id="原码反码补码移码的定义">原码、反码、补码、移码的定义</h2>
+<h2 id="原码、反码、补码、移码的定义">原码、反码、补码、移码的定义</h2>
 <h3 id="原码">原码</h3>
 <p>最简单、最接近真值原型的一种表示方法</p>
-<p>正号用<span class="math inline">\(0\)</span>表示，负号用<span class="math inline">\(1\)</span>表示，数值部分与<span class="math inline">\(绝对值\)</span>一致</p>
+<p>正号用$0$表示，负号用$1$表示，数值部分与$绝对值$一致</p>
 <h4 id="数学定义及计算方法">数学定义及计算方法</h4>
-<p><span class="math display">\[
-[X]_{原}=\begin{cases}
-0X&amp;X\ge0 \\
-1X&amp; X\le0
-\end{cases}
-\]</span></p>
-<h4 id="特点-1">特点</h4>
-<p>真值<span class="math inline">\(0\)</span>的原码表示不唯一，它占用了两个二进制编码</p>
-<p><span class="math inline">\([+0]_{原}=000\cdots0\)</span></p>
-<p><span class="math inline">\([-0]_{原}=100\cdots0\)</span></p>
+<p>$$<br>
+[X]_{原}=\begin{cases}<br>
+0X&amp;X\ge0 \<br>
+1X&amp; X\le0<br>
+\end{cases}<br>
+$$</p>
+<h4 id="特点-2">特点</h4>
+<p>真值$0$的原码表示不唯一，它占用了两个二进制编码</p>
+<p>$[+0]_{原}=000\cdots0$</p>
+<p>$[-0]_{原}=100\cdots0$</p>
 <h3 id="反码">反码</h3>
 <p>通常用来实现转换中的过度</p>
-<h4 id="数学定义及计算方法-1">数学定义及计算方法</h4>
-<p><span class="math display">\[
-[X]_{反}=\begin{cases}
-0X&amp;X\ge0  \\
-1\overline{X}&amp;X\le0
-\end{cases}
-\]</span></p>
-<h4 id="特点-2">特点</h4>
-<p>真值<span class="math inline">\(0\)</span>的原码表示不唯一，它占用了两个二进制编码</p>
-<p><span class="math inline">\([+0]_{反}=000\cdots0\)</span></p>
-<p><span class="math inline">\([-0]_{反}=111\cdots1\)</span></p>
+<h4 id="数学定义及计算方法-2">数学定义及计算方法</h4>
+<p>$$<br>
+[X]_{反}=\begin{cases}<br>
+0X&amp;X\ge0  \<br>
+1\overline{X}&amp;X\le0<br>
+\end{cases}<br>
+$$</p>
+<h4 id="特点-3">特点</h4>
+<p>真值$0$的原码表示不唯一，它占用了两个二进制编码</p>
+<p>$[+0]_{反}=000\cdots0$</p>
+<p>$[-0]_{反}=111\cdots1$</p>
 <h3 id="补码">补码</h3>
 <p>最广泛应用，能将减法用加法实现</p>
-<p>正号用<span class="math inline">\(0\)</span>表示，负号用<span class="math inline">\(1\)</span>表示，数值部分与<span class="math inline">\(原码\)</span>不同</p>
-<h4 id="数学定义及计算方法-2">数学定义及计算方法</h4>
-<p><span class="math display">\[
-[X]_{补}=\begin{cases}
-0X&amp;X\ge0  \\
-1\overline{X}+1(末位)&amp;X&lt;0
-\end{cases}
-\]</span></p>
-<h4 id="特点-3">特点</h4>
-<p><span class="math inline">\([+0]_{补}=[-0]_{补}=000\cdots0\)</span></p>
-<p>可看成只有<span class="math inline">\(+0\)</span>，<span class="math inline">\(-0\)</span>的编码用于表示最小的值<span class="math inline">\(-2^n\)</span>或<span class="math inline">\(-1\)</span></p>
-<h3 id="移码">移码</h3>
-<p>主要用于浮点机器数的<span class="math inline">\(阶码\)</span></p>
-<p>正号用<span class="math inline">\(1\)</span>表示，负号用<span class="math inline">\(0\)</span>表示，数值部分与<span class="math inline">\(补码\)</span>相同</p>
+<p>正号用$0$表示，负号用$1$表示，数值部分与$原码$不同</p>
 <h4 id="数学定义及计算方法-3">数学定义及计算方法</h4>
-<p><span class="math display">\[
-[X]_{移}=\begin{cases}
-1X&amp;X\ge0  \\
-0\overline{X}+1(末位)&amp;X&lt;0
-\end{cases}
-\]</span></p>
+<p>$$<br>
+[X]_{补}=\begin{cases}<br>
+0X&amp;X\ge0  \<br>
+1\overline{X}+1(末位)&amp;X&lt;0<br>
+\end{cases}<br>
+$$</p>
 <h4 id="特点-4">特点</h4>
-<p><span class="math inline">\([+0]_{补}=[-0]_{补}=100\cdots0\)</span></p>
-<p>可看成只有<span class="math inline">\(+0\)</span>，<span class="math inline">\(-0\)</span>的编码用于表示最小的值<span class="math inline">\(-2^n\)</span>或<span class="math inline">\(-1\)</span></p>
-<h2 id="原码反码补码移码描述的真值范围">原码、反码、补码、移码描述的真值范围</h2>
-<h3 id="原码n1位机器数">原码（n+1)位机器数</h3>
+<p>$[+0]<em>{补}=[-0]</em>{补}=000\cdots0$</p>
+<p>可看成只有$+0$，$-0$的编码用于表示最小的值$-2^n$或$-1$</p>
+<h3 id="移码">移码</h3>
+<p>主要用于浮点机器数的$阶码$</p>
+<p>正号用$1$表示，负号用$0$表示，数值部分与$补码$相同</p>
+<h4 id="数学定义及计算方法-4">数学定义及计算方法</h4>
+<p>$$<br>
+[X]_{移}=\begin{cases}<br>
+1X&amp;X\ge0  \<br>
+0\overline{X}+1(末位)&amp;X&lt;0<br>
+\end{cases}<br>
+$$</p>
+<h4 id="特点-5">特点</h4>
+<p>$[+0]<em>{补}=[-0]</em>{补}=100\cdots0$</p>
+<p>可看成只有$+0$，$-0$的编码用于表示最小的值$-2^n$或$-1$</p>
+<h2 id="原码、反码、补码、移码描述的真值范围">原码、反码、补码、移码描述的真值范围</h2>
+<h3 id="原码（n-1-位机器数">原码（n+1)位机器数</h3>
 <h4 id="定点整数">定点整数</h4>
-<p><span class="math inline">\(-(2^n-1)\le X \le2^n-1\)</span></p>
+<p>$-(2^n-1)\le X \le2^n-1$</p>
 <h4 id="定点小数">定点小数</h4>
-<p><span class="math inline">\(-(1-2^{-n})\le X \le1-2^{-n}\)</span></p>
-<h3 id="反码n1位机器数">反码（n+1)位机器数</h3>
-<h4 id="定点整数-1">定点整数</h4>
-<p><span class="math inline">\(-(2^n-1)\le X \le2^n-1\)</span></p>
-<h4 id="定点小数-1">定点小数</h4>
-<p><span class="math inline">\(-(1-2^{-n})\le X \le1-2^{-n}\)</span></p>
-<h3 id="补码n1位机器数">补码（n+1)位机器数</h3>
+<p>$-(1-2^{-n})\le X \le1-2^{-n}$</p>
+<h3 id="反码（n-1-位机器数">反码（n+1)位机器数</h3>
 <h4 id="定点整数-2">定点整数</h4>
-<p><span class="math inline">\(-2^n\le X \le2^n-1\)</span></p>
+<p>$-(2^n-1)\le X \le2^n-1$</p>
 <h4 id="定点小数-2">定点小数</h4>
-<p><span class="math inline">\(-1\le X \le1-2^{-n}\)</span></p>
-<p>与<span class="math inline">\(原码\)</span>相比，<span class="math inline">\(补码\)</span>表示的整数和小数范围在负向分别多了一个值：<span class="math inline">\(-2^n\)</span>和<span class="math inline">\(-1\)</span></p>
-<p>因为真值<span class="math inline">\(0\)</span>只占用一个编码<span class="math inline">\(000\cdots0\)</span>，另外一个在<span class="math inline">\(原码\)</span>中表示<span class="math inline">\(-0\)</span>的编码<span class="math inline">\(100\cdots0\)</span>则用来表示值<span class="math inline">\(-2^n\)</span>和<span class="math inline">\(-1\)</span>(最小的数)</p>
-<h3 id="移码n1位机器数">移码（n+1)位机器数</h3>
-<p>与<span class="math inline">\(补码\)</span>相同</p>
-<h1 id="浮点数的机器数">3.2 浮点数的机器数</h1>
-<h2 id="ieee754标准32位">IEEE754标准32位</h2>
-<p>阶码为移码，偏移值要减<span class="math inline">\(1\)</span></p>
+<p>$-(1-2^{-n})\le X \le1-2^{-n}$</p>
+<h3 id="补码（n-1-位机器数">补码（n+1)位机器数</h3>
+<h4 id="定点整数-3">定点整数</h4>
+<p>$-2^n\le X \le2^n-1$</p>
+<h4 id="定点小数-3">定点小数</h4>
+<p>$-1\le X \le1-2^{-n}$</p>
+<p>与$原码$相比，$补码$表示的整数和小数范围在负向分别多了一个值：$-2^n$和$-1$</p>
+<p>因为真值$0$只占用一个编码$000\cdots0$，另外一个在$原码$中表示$-0$的编码$100\cdots0$则用来表示值$-2^n$和$-1$(最小的数)</p>
+<h3 id="移码（n-1-位机器数">移码（n+1)位机器数</h3>
+<p>与$补码$相同</p>
+<h1>3.2 浮点数的机器数</h1>
+<h2 id="IEEE754标准32位">IEEE754标准32位</h2>
+<p>阶码为移码，偏移值要减$1$</p>
 <p>尾数为原码</p>
 <h3 id="格式">格式</h3>
-<p><span class="math inline">\(M_{s}\)</span> <span class="math inline">\(E_{s}\)</span> <span class="math inline">\(E_{1}E_{2}\cdots E_{m}\)</span> <span class="math inline">\(.\)</span> <span class="math inline">\(M_{1}M_{2}\cdots M_{n}\)</span></p>
-<p>数符 阶符 阶码数值 尾数数值</p>
+<p>$M_{s}$         $E_{s}$             $E_{1}E_{2}\cdots E_{m}$           $.$        $M_{1}M_{2}\cdots M_{n}$</p>
+<p>数符       阶符            阶码数值                              尾数数值</p>
 <p>尾数24位（含1位数符），阶码8位（含1位阶符）</p>
 <h3 id="真值计算">真值计算</h3>
-<p><span class="math inline">\(N=(-1)^{M_{s}}\times (1.M_{1}M_{2}\cdots M_{n})\times 2^{E-127}\)</span></p>
-<p>其中<span class="math inline">\(E\)</span>为阶码的无符号真值</p>
+<p>$N=(-1)^{M_{s}}\times (1.M_{1}M_{2}\cdots M_{n})\times 2^{E-127}$</p>
+<p>其中$E$为阶码的无符号真值</p>
 <h2 id="自定义格式下浮点数规格化的表示方法">自定义格式下浮点数规格化的表示方法</h2>
-<h3 id="原码-1">原码</h3>
-<p>原码表示的尾数，当最高有效位<span class="math inline">\(（M_{1}）\)</span>为<span class="math inline">\(1\)</span>时，浮点数规格化，即尾数为<span class="math inline">\(X.1X\cdots X\)</span></p>
-<h3 id="补码-1">补码</h3>
-<p>补码表示的尾数，当符号位<span class="math inline">\(（M_{S}）\)</span>与最高有效位<span class="math inline">\(（M_{1}）\)</span>相异时，浮点数规格化，即尾数为<span class="math inline">\(0.1X\cdots X\)</span>或<span class="math inline">\(1.0X\cdots X\)</span></p>
+<h3 id="原码-2">原码</h3>
+<p>原码表示的尾数，当最高有效位$（M_{1}）$为$1$时，浮点数规格化，即尾数为$X.1X\cdots X$</p>
+<h3 id="补码-2">补码</h3>
+<p>补码表示的尾数，当符号位$（M_{S}）$与最高有效位$（M_{1}）$相异时，浮点数规格化，即尾数为$0.1X\cdots X$或$1.0X\cdots X$</p>
 <p>当符号位与最高有效位相同时，必须左规</p>
-<h2 id="自定义格式下浮点数规格化非规格化表示描述的浮点数真值范围">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</h2>
+<h2 id="自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</h2>
 <p>阶码为移码，尾数为补码</p>
 <h3 id="规格化表示范围">规格化表示范围</h3>
-<p>最小数 <span class="math inline">\(-1\times2^{31}=-2^{31}\)</span> <span class="math inline">\(1,11111\quad 1.000000000\)</span></p>
-<p>最大负数 <span class="math inline">\(-(2^{-1}+2^{-9}\times2^{-32})\)</span> <span class="math inline">\(0,00000\quad 1.011111111\)</span></p>
-<p>最小正数 <span class="math inline">\(2^{-1}\times2^{-32}=2^{-33}\)</span> <span class="math inline">\(0,00000\quad 0.100000000\)</span></p>
-<p>最大数 <span class="math inline">\((1-2^{-9}\times2^{31})\)</span> <span class="math inline">\(1,11111\quad 0.111111111\)</span></p>
+<p>最小数             $-1\times2^{31}=-2^{31}$             $1,11111\quad 1.000000000$</p>
+<p>最大负数         $-(2^{-1}+2^{-9}\times2^{-32})$      $0,00000\quad 1.011111111$</p>
+<p>最小正数         $2^{-1}\times2^{-32}=2^{-33}$           $0,00000\quad 0.100000000$</p>
+<p>最大数             $(1-2^{-9}\times2^{31})$                 $1,11111\quad 0.111111111$</p>
 <h3 id="非规格化表示范围">非规格化表示范围</h3>
-<p>最小数 <span class="math inline">\(-1\times2^{31}=-2^{31}\)</span> <span class="math inline">\(1,11111\quad 1.000000000\)</span></p>
-<p>最大负数 <span class="math inline">\(-2^{-9}\times2^{-32}=-2^{-41}\)</span> <span class="math inline">\(0,00000\quad 1.111111111\)</span></p>
-<p>最小正数 <span class="math inline">\(2^{-9}\times2^{-32}=2^{-41}\)</span> <span class="math inline">\(0,00000\quad 0.000000001\)</span></p>
-<p>最大数 <span class="math inline">\((1-2^{-9}\times2^{31})\)</span> <span class="math inline">\(1,11111\quad 0.111111111\)</span></p>
+<p>最小数             $-1\times2^{31}=-2^{31}$             $1,11111\quad 1.000000000$</p>
+<p>最大负数         $-2^{-9}\times2^{-32}=-2^{-41}$    $0,00000\quad 1.111111111$</p>
+<p>最小正数         $2^{-9}\times2^{-32}=2^{-41}$           $0,00000\quad 0.000000001$</p>
+<p>最大数             $(1-2^{-9}\times2^{31})$                 $1,11111\quad 0.111111111$</p>
 
       
     </div>
@@ -609,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">3.1 定点整数的机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81%E7%A7%BB%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">原码、反码、补码、移码的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">原码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">反码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-2"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81"><span class="nav-number">1.2.3.</span> <span class="nav-text">补码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-3"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E7%A0%81"><span class="nav-number">1.2.4.</span> <span class="nav-text">移码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-3"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-4"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E8%A1%A5%E7%A0%81%E7%A7%BB%E7%A0%81%E6%8F%8F%E8%BF%B0%E7%9A%84%E7%9C%9F%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="nav-number">1.3.</span> <span class="nav-text">原码、反码、补码、移码描述的真值范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81n1%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">原码（n+1)位机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">定点整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">定点小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81n1%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">反码（n+1)位机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0-1"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">定点整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0-1"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">定点小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81n1%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">补码（n+1)位机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0-2"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">定点整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0-2"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">定点小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E7%A0%81n1%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.4.</span> <span class="nav-text">移码（n+1)位机器数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">3.2 浮点数的机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ieee754%E6%A0%87%E5%87%8632%E4%BD%8D"><span class="nav-number">2.1.</span> <span class="nav-text">IEEE754标准32位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%80%BC%E8%AE%A1%E7%AE%97"><span class="nav-number">2.1.2.</span> <span class="nav-text">真值计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%E4%B8%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A7%84%E6%A0%BC%E5%8C%96%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">自定义格式下浮点数规格化的表示方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">原码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">补码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%E4%B8%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A7%84%E6%A0%BC%E5%8C%96%E9%9D%9E%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%8F%8F%E8%BF%B0%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9C%9F%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="nav-number">2.3.</span> <span class="nav-text">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="nav-number">2.3.1.</span> <span class="nav-text">规格化表示范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="nav-number">2.3.2.</span> <span class="nav-text">非规格化表示范围</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">3.1 定点整数的机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E3%80%81%E7%A7%BB%E7%A0%81%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">原码、反码、补码、移码的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81"><span class="nav-number">1.2.1.</span> <span class="nav-text">原码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-2"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81"><span class="nav-number">1.2.2.</span> <span class="nav-text">反码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-3"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81"><span class="nav-number">1.2.3.</span> <span class="nav-text">补码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-3"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-4"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E7%A0%81"><span class="nav-number">1.2.4.</span> <span class="nav-text">移码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-4"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">数学定义及计算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-5"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E3%80%81%E7%A7%BB%E7%A0%81%E6%8F%8F%E8%BF%B0%E7%9A%84%E7%9C%9F%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="nav-number">1.3.</span> <span class="nav-text">原码、反码、补码、移码描述的真值范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%EF%BC%88n-1-%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">原码（n+1)位机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">定点整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">定点小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81%EF%BC%88n-1-%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">反码（n+1)位机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0-2"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">定点整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0-2"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">定点小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%EF%BC%88n-1-%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">补码（n+1)位机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0-3"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">定点整数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0-3"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">定点小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E7%A0%81%EF%BC%88n-1-%E4%BD%8D%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="nav-number">1.3.4.</span> <span class="nav-text">移码（n+1)位机器数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">3.2 浮点数的机器数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE754%E6%A0%87%E5%87%8632%E4%BD%8D"><span class="nav-number">2.1.</span> <span class="nav-text">IEEE754标准32位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%80%BC%E8%AE%A1%E7%AE%97"><span class="nav-number">2.1.2.</span> <span class="nav-text">真值计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%E4%B8%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A7%84%E6%A0%BC%E5%8C%96%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">自定义格式下浮点数规格化的表示方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">原码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">补码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%E4%B8%8B%E6%B5%AE%E7%82%B9%E6%95%B0%E8%A7%84%E6%A0%BC%E5%8C%96%E3%80%81%E9%9D%9E%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA%EF%BC%8C%E6%8F%8F%E8%BF%B0%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9C%9F%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="nav-number">2.3.</span> <span class="nav-text">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="nav-number">2.3.1.</span> <span class="nav-text">规格化表示范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E8%A7%84%E6%A0%BC%E5%8C%96%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="nav-number">2.3.2.</span> <span class="nav-text">非规格化表示范围</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
