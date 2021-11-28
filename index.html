@@ -332,78 +332,84 @@
       
         
           
-            <h1>定点整数的运算</h1>
+            <h1 id="定点整数的运算">定点整数的运算</h1>
 <h2 id="补码加减运算公式">补码加减运算公式</h2>
-<p>$[X+Y]_补=[X]_补+[Y]_补\quad (mod\quad 2^{n+1})$</p>
-<p>$[X-Y]_补=[X]_补+[-Y]_补\quad (mod\quad 2^{n+1})$</p>
-<p>若$[Y]_补=Y_0,Y_1\cdots Y_n$，则$[-Y]_补=\overline Y_0\overline Y_1\cdots \overline Y_n+1$</p>
-<p>若$[Y]_补=Y_0.Y_1\cdots Y_n$，则$[-Y]_补=\overline Y_0\overline Y_1\cdots \overline Y_n+0.0\cdots01$</p>
-<h2 id="定点数加法-减法的运算方法的溢出检测判断">定点数加法/减法的运算方法的溢出检测判断</h2>
+<p><span class="math inline">\([X+Y]_补=[X]_补+[Y]_补\quad (mod\quad 2^{n+1})\)</span></p>
+<p><span class="math inline">\([X-Y]_补=[X]_补+[-Y]_补\quad (mod\quad 2^{n+1})\)</span></p>
+<p>若<span class="math inline">\([Y]_补=Y_0,Y_1\cdots Y_n\)</span>，则<span class="math inline">\([-Y]_补=\overline Y_0\overline Y_1\cdots \overline Y_n+1\)</span></p>
+<p>若<span class="math inline">\([Y]_补=Y_0.Y_1\cdots Y_n\)</span>，则<span class="math inline">\([-Y]_补=\overline Y_0\overline Y_1\cdots \overline Y_n+0.0\cdots01\)</span></p>
+<h2 id="定点数加法减法的运算方法的溢出检测判断">定点数加法/减法的运算方法的溢出检测判断</h2>
 <h3 id="进位判溢方法">进位判溢方法</h3>
-<p>$V=C_1\oplus C_f$</p>
-<p>其中$C_1$为最高有效位进位，$C_f$为符号位进位</p>
-<p>当$V$为$1$时，即$C_1$、$C_f$不相同时，溢出</p>
+<p><span class="math inline">\(V=C_1\oplus C_f\)</span></p>
+<p>其中<span class="math inline">\(C_1\)</span>为最高有效位进位，<span class="math inline">\(C_f\)</span>为符号位进位</p>
+<p>当<span class="math inline">\(V\)</span>为<span class="math inline">\(1\)</span>时，即<span class="math inline">\(C_1\)</span>、<span class="math inline">\(C_f\)</span>不相同时，溢出</p>
 <h3 id="双符号位判溢方法">双符号位判溢方法</h3>
-<p>$V=S_{f1}\oplus S_{f2}$</p>
-<p>当$V$为$1$时，即$S_{f1}$、$S_{f2}$不相同时，溢出</p>
-<p>当$S_{f1}S_{f2}=01$时，正溢出</p>
-<p>当$S_{f1}S_{f2}=10$时，负溢出</p>
+<p><span class="math inline">\(V=S_{f1}\oplus S_{f2}\)</span></p>
+<p>当<span class="math inline">\(V\)</span>为<span class="math inline">\(1\)</span>时，即<span class="math inline">\(S_{f1}\)</span>、<span class="math inline">\(S_{f2}\)</span>不相同时，溢出</p>
+<p>当<span class="math inline">\(S_{f1}S_{f2}=01\)</span>时，正溢出</p>
+<p>当<span class="math inline">\(S_{f1}S_{f2}=10\)</span>时，负溢出</p>
 <h3 id="逻辑位移">逻辑位移</h3>
-<p>将数据视为$无符号数据$</p>
-<p>逻辑左移，高位移出，低位补$0$</p>
-<p>逻辑右移，低位移出，高位补$0$</p>
+<p>将数据视为<span class="math inline">\(无符号数据\)</span></p>
+<p>逻辑左移，高位移出，低位补<span class="math inline">\(0\)</span></p>
+<p>逻辑右移，低位移出，高位补<span class="math inline">\(0\)</span></p>
 <h3 id="算术移位">算术移位</h3>
 <p>带符号的数据，符号位必须保持不变</p>
 <h4 id="原码">原码</h4>
-<p>算术左移，符号位不变，高位移出，低位补$0$</p>
-<p>算术右移，符号位不变，低位移出，高位补$0$</p>
+<p>算术左移，符号位不变，高位移出，低位补<span class="math inline">\(0\)</span></p>
+<p>算术右移，符号位不变，低位移出，高位补<span class="math inline">\(0\)</span></p>
 <h4 id="补码">补码</h4>
-<p>算术左移，符号位不变，高位移出，低位补$0$（$符号位$和$最高有效位$不相同时溢出）</p>
-<p>算术右移，符号位不变，低位移出，高位补$符号位$</p>
+<p>算术左移，符号位不变，高位移出，低位补<span class="math inline">\(0\)</span>（<span class="math inline">\(符号位\)</span>和<span class="math inline">\(最高有效位\)</span>不相同时溢出）</p>
+<p>算术右移，符号位不变，低位移出，高位补<span class="math inline">\(符号位\)</span></p>
 <h4 id="反码">反码</h4>
-<p>算术左移，高位移出，低位补$符号位$</p>
-<p>算术右移，低位移出，高位补$符号位$</p>
+<p>算术左移，高位移出，低位补<span class="math inline">\(符号位\)</span></p>
+<p>算术右移，低位移出，高位补<span class="math inline">\(符号位\)</span></p>
 <h3 id="定点整数无符号阵列乘法器的原理">定点整数无符号阵列乘法器的原理</h3>
-<p>$m$位$\times$$n$位绝对值阵列乘法器共需要$n\times m$个与门，$n\times (m-1)$个全加器</p>
-<h1>定点运算器的组成与结构</h1>
+<p><span class="math inline">\(m\)</span>位<span class="math inline">\(\times\)</span><span class="math inline">\(n\)</span>位绝对值阵列乘法器共需要<span class="math inline">\(n\times m\)</span>个与门，<span class="math inline">\(n\times (m-1)\)</span>个全加器</p>
+<h1 id="定点运算器的组成与结构">定点运算器的组成与结构</h1>
 <h2 id="三种不同总线结构下定点运算器的运算步骤">三种不同总线结构下定点运算器的运算步骤</h2>
 <h3 id="单总线结构">单总线结构</h3>
-<p><img src="..%5Csrc%5C%E5%8D%95%E6%80%BB%E7%BA%BF.jpg" alt="单总线"></p>
+<figure>
+<img src="..\src\单总线.jpg" alt="单总线" /><figcaption aria-hidden="true">单总线</figcaption>
+</figure>
 <h4 id="结构一">结构一</h4>
 <ul>
-<li>$(R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现$</li>
-<li>$(R_j)\rightarrow LB:通过发送信号R_j\rightarrow IB、IB\rightarrow LB来实现$</li>
-<li>$ALU运算，结果\rightarrow R_j;通过发送信号C_OP(\theta)、ALU\rightarrow IB、IB\rightarrow R_k来实现$</li>
+<li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow LB:通过发送信号R_j\rightarrow IB、IB\rightarrow LB来实现\)</span></li>
+<li><span class="math inline">\(ALU运算，结果\rightarrow R_j;通过发送信号C\_OP(\theta)、ALU\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
 </ul>
 <h4 id="结构二">结构二</h4>
 <ul>
-<li>$(R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现$</li>
-<li>$(R_j)\rightarrow IB，ALU运算，结果\rightarrow LC：通过发送信号R_j\rightarrow IB、C_OP(\theta)、ALU\rightarrow LC来实现$</li>
-<li>$(LC)\rightarrow R_k:通过发送信号LC\rightarrow IB、IB\rightarrow R_k来实现$</li>
+<li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow IB，ALU运算，结果\rightarrow LC：通过发送信号R_j\rightarrow IB、C\_OP(\theta)、ALU\rightarrow LC来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k:通过发送信号LC\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
 </ul>
 <h3 id="双总线结构">双总线结构</h3>
-<p><img src="..%5Csrc%5C%E5%8F%8C%E6%80%BB%E7%BA%BF.jpg" alt="双总线"></p>
-<h4 id="结构一-2">结构一</h4>
+<figure>
+<img src="..\src\双总线.jpg" alt="双总线" /><figcaption aria-hidden="true">双总线</figcaption>
+</figure>
+<h4 id="结构一-1">结构一</h4>
 <ul>
-<li>$(R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，结果\rightarrow LC：通过发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C_OP(\theta)、\ALU\rightarrow LC来实现$</li>
-<li>$(LC)\rightarrow R_k：通过发送信号LC\rightarrow IB1、IB1\rightarrow R_k来实现$</li>
+<li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，结果\rightarrow LC：通过发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow LC来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k：通过发送信号LC\rightarrow IB1、IB1\rightarrow R_k来实现\)</span></li>
 </ul>
-<h4 id="结构二-2">结构二</h4>
+<h4 id="结构二-1">结构二</h4>
 <ul>
-<li>$(R_i)\rightarrow LA：通过发送信号R_i\rightarrow IB1、IB1\rightarrow LA来实现$</li>
-<li>$(R_j)\rightarrow IB2，ALU运算，IB1\rightarrow R_k：通过发送信号R_j\rightarrow IB2、C_OP(\theta)、ALU\rightarrow IB1、IB1\rightarrow R_k来实现$</li>
+<li><span class="math inline">\((R_i)\rightarrow LA：通过发送信号R_i\rightarrow IB1、IB1\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow IB2，ALU运算，IB1\rightarrow R_k：通过发送信号R_j\rightarrow IB2、C\_OP(\theta)、ALU\rightarrow IB1、IB1\rightarrow R_k来实现\)</span></li>
 </ul>
 <h3 id="三总线结构">三总线结构</h3>
-<p><img src="..%5Csrc%5C%E4%B8%89%E6%80%BB%E7%BA%BF.jpg" alt="三总线"></p>
+<figure>
+<img src="..\src\三总线.jpg" alt="三总线" /><figcaption aria-hidden="true">三总线</figcaption>
+</figure>
 <ul>
-<li>$(R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，IB3\rightarrow R_k：需要发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C_OP(\theta)、\ALU\rightarrow IB3、IB3\rightarrow R_k$</li>
+<li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，IB3\rightarrow R_k：需要发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow IB3、IB3\rightarrow R_k\)</span></li>
 </ul>
-<h2 id="定点运算器结构中暂存器-LA、LC-和缓冲器的作用及更换后的工作过程判断">定点运算器结构中暂存器 LA、LC 和缓冲器的作用及更换后的工作过程判断</h2>
+<h2 id="定点运算器结构中暂存器-lalc-和缓冲器的作用及更换后的工作过程判断">定点运算器结构中暂存器 LA、LC 和缓冲器的作用及更换后的工作过程判断</h2>
 <ul>
 <li>缓冲器、LA更换为LC，可以正常工作，因为LC可以控制输出</li>
 <li>缓冲器更换成LA，不能正常工作，因为LA会一直占用数据总线</li>
 </ul>
-<h1>浮点数加法/减法的运算</h1>
+<h1 id="浮点数加法减法的运算">浮点数加法/减法的运算</h1>
 <h2 id="自定义规格化表示的浮点数运算的5个经典步骤">自定义规格化表示的浮点数运算的5个经典步骤</h2>
 
           
@@ -547,16 +553,16 @@
         
           
             <h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/104">https://codeforces.com/problemsets/acmsguru/problem/99999/104</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/104" class="uri">https://codeforces.com/problemsets/acmsguru/problem/99999/104</a></p>
 <h2 id="解题思路">解题思路</h2>
 <p>动态规划</p>
 <p>由题意可知，后一个状态跟前一个状态有关，所以想到了动态规划</p>
-<p>第i束花从第i个花瓶开始放，可的状态转移方程$dp[i][j]=max(dp[i-1][j-1]+cost[i][j],dp[i][j-1] )$</p>
-<p>用$path$记录路径，每行的最后一个不为$0$的元素下标即是花瓶的序号,因为每层是从左往右遍历的</p>
+<p>第i束花从第i个花瓶开始放，可的状态转移方程<span class="math inline">\(dp[i][j]=max(dp[i-1][j-1]+cost[i][j],dp[i][j-1] )\)</span></p>
+<p>用<span class="math inline">\(path\)</span>记录路径，每行的最后一个不为<span class="math inline">\(0\)</span>的元素下标即是花瓶的序号,因为每层是从左往右遍历的</p>
 <h2 id="动态规划">动态规划</h2>
 <p>如果下一个状态跟上一个状态有关，就可以用动态规划求解</p>
 <p>状态转移方程可以是，当前状态=max/min{选择时的上一个状态+状态转移量，不选时的上一个状态}</p>
-<p>$dp[i][j]=max/min((选)+d,(不选))$</p>
+<p><span class="math inline">\(dp[i][j]=max/min((选)+d,(不选))\)</span></p>
 <h2 id="代码">代码</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 100000000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> path[<span class="number">105</span>][<span class="number">105</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> f, v;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">105</span>][<span class="number">105</span>] = &#123; <span class="number">0</span> &#125;, cost[<span class="number">105</span>][<span class="number">105</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= f; ++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt;= v; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + cost[i][j] &gt; dp[i][j - <span class="number">1</span>]) &#123;</span><br><span class="line">				dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + cost[i][j];</span><br><span class="line">				path[i][j] = <span class="number">1</span>;         <span class="comment">//path每行的最后一个不为0的元素的下标就是对应的花瓶</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				dp[i][j] = dp[i][j - <span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; dp[f][v] &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">int</span> k = f, p[<span class="number">105</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = v; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">		<span class="keyword">if</span> (path[k][i] &amp;&amp; k &gt;= <span class="number">1</span>)</span><br><span class="line">			p[k--] = i;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= f; ++i)</span><br><span class="line">		cout &lt;&lt; p[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">105</span>; ++i)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">105</span>; ++j)</span><br><span class="line">			dp[i][j] = -INF;              <span class="comment">//将dp数组初始化为一个很大的负数，因为题目中有负数出现，初                                             始化为0可能会导致状态无法更新</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">105</span>; ++i)</span><br><span class="line">		dp[<span class="number">0</span>][i] = <span class="number">0</span>;              <span class="comment">//第0行初始化为0，表示第0行的状态都更新了，是为了不影响第一行状态                                      的更新，因为状态转移方程是，如果选这个花瓶，就将这个花瓶的值加上                                      上一个状态的值，就等于当前状态的值，如果不选，则当前状态的值等于                                      上一个状态的值，即如果第一束花选了花瓶，则当前状态就是对应的值，                                      不选的花，则还是-INF</span></span><br><span class="line">	cin &gt;&gt; f &gt;&gt; v;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= f; ++i)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= v; ++j)</span><br><span class="line">			cin &gt;&gt; cost[i][j];</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -701,12 +707,14 @@
         
           
             <h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/103">https://codeforces.com/problemsets/acmsguru/problem/99999/103</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/103" class="uri">https://codeforces.com/problemsets/acmsguru/problem/99999/103</a></p>
 <h2 id="解题思路">解题思路</h2>
 <p>这是一道求单源最短路径的题目，可以利用dijkstra算法求解</p>
 <p>但是题目增加了限制条件，当两个路口的交通灯颜色相同时才能通过，可能会存在两路口的交通灯颜色一直都不会相同的情况，所以要进行判断，并且等待的时间也要计算在内</p>
 <h2 id="dijkstra算法">dijkstra算法</h2>
-<p><img src="../src/103.png" alt="103"></p>
+<figure>
+<img src="../src/103.png" alt="103" /><figcaption aria-hidden="true">103</figcaption>
+</figure>
 <p>假设，起点为A，先将A加到S集合中</p>
 <p>由A点一步可以到达的点有：B,C;</p>
 <p>A-&gt;B:3</p>
@@ -860,116 +868,116 @@
       
         
           
-            <h1>3.1 定点整数的机器数</h1>
+            <h1 id="定点整数的机器数">3.1 定点整数的机器数</h1>
 <h2 id="机器数">机器数</h2>
-<p>数值数据在计算机中的表示形式称为$机器数$</p>
+<p>数值数据在计算机中的表示形式称为<span class="math inline">\(机器数\)</span></p>
 <h3 id="特点">特点</h3>
 <p>1.数值范围受计算机字长的限制</p>
 <p>2.符号位用二进制的0或1表示</p>
 <p>3.小数点用规定的隐含方式表达</p>
-<h2 id="原码、反码、补码、移码的定义">原码、反码、补码、移码的定义</h2>
+<h2 id="原码反码补码移码的定义">原码、反码、补码、移码的定义</h2>
 <h3 id="原码">原码</h3>
 <p>最简单、最接近真值原型的一种表示方法</p>
-<p>正号用$0$表示，负号用$1$表示，数值部分与$绝对值$一致</p>
+<p>正号用<span class="math inline">\(0\)</span>表示，负号用<span class="math inline">\(1\)</span>表示，数值部分与<span class="math inline">\(绝对值\)</span>一致</p>
 <h4 id="数学定义及计算方法">数学定义及计算方法</h4>
-<p>$$<br>
-[X]_{原}=\begin{cases}<br>
-0X&amp;X\ge0 \<br>
-1X&amp; X\le0<br>
-\end{cases}<br>
-$$</p>
-<h4 id="特点-2">特点</h4>
-<p>真值$0$的原码表示不唯一，它占用了两个二进制编码</p>
-<p>$[+0]_{原}=000\cdots0$</p>
-<p>$[-0]_{原}=100\cdots0$</p>
+<p><span class="math display">\[
+[X]_{原}=\begin{cases}
+0X&amp;X\ge0 \\
+1X&amp; X\le0
+\end{cases}
+\]</span></p>
+<h4 id="特点-1">特点</h4>
+<p>真值<span class="math inline">\(0\)</span>的原码表示不唯一，它占用了两个二进制编码</p>
+<p><span class="math inline">\([+0]_{原}=000\cdots0\)</span></p>
+<p><span class="math inline">\([-0]_{原}=100\cdots0\)</span></p>
 <h3 id="反码">反码</h3>
 <p>通常用来实现转换中的过度</p>
-<h4 id="数学定义及计算方法-2">数学定义及计算方法</h4>
-<p>$$<br>
-[X]_{反}=\begin{cases}<br>
-0X&amp;X\ge0  \<br>
-1\overline{X}&amp;X\le0<br>
-\end{cases}<br>
-$$</p>
-<h4 id="特点-3">特点</h4>
-<p>真值$0$的原码表示不唯一，它占用了两个二进制编码</p>
-<p>$[+0]_{反}=000\cdots0$</p>
-<p>$[-0]_{反}=111\cdots1$</p>
+<h4 id="数学定义及计算方法-1">数学定义及计算方法</h4>
+<p><span class="math display">\[
+[X]_{反}=\begin{cases}
+0X&amp;X\ge0  \\
+1\overline{X}&amp;X\le0
+\end{cases}
+\]</span></p>
+<h4 id="特点-2">特点</h4>
+<p>真值<span class="math inline">\(0\)</span>的原码表示不唯一，它占用了两个二进制编码</p>
+<p><span class="math inline">\([+0]_{反}=000\cdots0\)</span></p>
+<p><span class="math inline">\([-0]_{反}=111\cdots1\)</span></p>
 <h3 id="补码">补码</h3>
 <p>最广泛应用，能将减法用加法实现</p>
-<p>正号用$0$表示，负号用$1$表示，数值部分与$原码$不同</p>
-<h4 id="数学定义及计算方法-3">数学定义及计算方法</h4>
-<p>$$<br>
-[X]_{补}=\begin{cases}<br>
-0X&amp;X\ge0  \<br>
-1\overline{X}+1(末位)&amp;X&lt;0<br>
-\end{cases}<br>
-$$</p>
-<h4 id="特点-4">特点</h4>
-<p>$[+0]<em>{补}=[-0]</em>{补}=000\cdots0$</p>
-<p>可看成只有$+0$，$-0$的编码用于表示最小的值$-2^n$或$-1$</p>
+<p>正号用<span class="math inline">\(0\)</span>表示，负号用<span class="math inline">\(1\)</span>表示，数值部分与<span class="math inline">\(原码\)</span>不同</p>
+<h4 id="数学定义及计算方法-2">数学定义及计算方法</h4>
+<p><span class="math display">\[
+[X]_{补}=\begin{cases}
+0X&amp;X\ge0  \\
+1\overline{X}+1(末位)&amp;X&lt;0
+\end{cases}
+\]</span></p>
+<h4 id="特点-3">特点</h4>
+<p><span class="math inline">\([+0]_{补}=[-0]_{补}=000\cdots0\)</span></p>
+<p>可看成只有<span class="math inline">\(+0\)</span>，<span class="math inline">\(-0\)</span>的编码用于表示最小的值<span class="math inline">\(-2^n\)</span>或<span class="math inline">\(-1\)</span></p>
 <h3 id="移码">移码</h3>
-<p>主要用于浮点机器数的$阶码$</p>
-<p>正号用$1$表示，负号用$0$表示，数值部分与$补码$相同</p>
-<h4 id="数学定义及计算方法-4">数学定义及计算方法</h4>
-<p>$$<br>
-[X]_{移}=\begin{cases}<br>
-1X&amp;X\ge0  \<br>
-0\overline{X}+1(末位)&amp;X&lt;0<br>
-\end{cases}<br>
-$$</p>
-<h4 id="特点-5">特点</h4>
-<p>$[+0]<em>{补}=[-0]</em>{补}=100\cdots0$</p>
-<p>可看成只有$+0$，$-0$的编码用于表示最小的值$-2^n$或$-1$</p>
-<h2 id="原码、反码、补码、移码描述的真值范围">原码、反码、补码、移码描述的真值范围</h2>
-<h3 id="原码（n-1-位机器数">原码（n+1)位机器数</h3>
+<p>主要用于浮点机器数的<span class="math inline">\(阶码\)</span></p>
+<p>正号用<span class="math inline">\(1\)</span>表示，负号用<span class="math inline">\(0\)</span>表示，数值部分与<span class="math inline">\(补码\)</span>相同</p>
+<h4 id="数学定义及计算方法-3">数学定义及计算方法</h4>
+<p><span class="math display">\[
+[X]_{移}=\begin{cases}
+1X&amp;X\ge0  \\
+0\overline{X}+1(末位)&amp;X&lt;0
+\end{cases}
+\]</span></p>
+<h4 id="特点-4">特点</h4>
+<p><span class="math inline">\([+0]_{补}=[-0]_{补}=100\cdots0\)</span></p>
+<p>可看成只有<span class="math inline">\(+0\)</span>，<span class="math inline">\(-0\)</span>的编码用于表示最小的值<span class="math inline">\(-2^n\)</span>或<span class="math inline">\(-1\)</span></p>
+<h2 id="原码反码补码移码描述的真值范围">原码、反码、补码、移码描述的真值范围</h2>
+<h3 id="原码n1位机器数">原码（n+1)位机器数</h3>
 <h4 id="定点整数">定点整数</h4>
-<p>$-(2^n-1)\le X \le2^n-1$</p>
+<p><span class="math inline">\(-(2^n-1)\le X \le2^n-1\)</span></p>
 <h4 id="定点小数">定点小数</h4>
-<p>$-(1-2^{-n})\le X \le1-2^{-n}$</p>
-<h3 id="反码（n-1-位机器数">反码（n+1)位机器数</h3>
+<p><span class="math inline">\(-(1-2^{-n})\le X \le1-2^{-n}\)</span></p>
+<h3 id="反码n1位机器数">反码（n+1)位机器数</h3>
+<h4 id="定点整数-1">定点整数</h4>
+<p><span class="math inline">\(-(2^n-1)\le X \le2^n-1\)</span></p>
+<h4 id="定点小数-1">定点小数</h4>
+<p><span class="math inline">\(-(1-2^{-n})\le X \le1-2^{-n}\)</span></p>
+<h3 id="补码n1位机器数">补码（n+1)位机器数</h3>
 <h4 id="定点整数-2">定点整数</h4>
-<p>$-(2^n-1)\le X \le2^n-1$</p>
+<p><span class="math inline">\(-2^n\le X \le2^n-1\)</span></p>
 <h4 id="定点小数-2">定点小数</h4>
-<p>$-(1-2^{-n})\le X \le1-2^{-n}$</p>
-<h3 id="补码（n-1-位机器数">补码（n+1)位机器数</h3>
-<h4 id="定点整数-3">定点整数</h4>
-<p>$-2^n\le X \le2^n-1$</p>
-<h4 id="定点小数-3">定点小数</h4>
-<p>$-1\le X \le1-2^{-n}$</p>
-<p>与$原码$相比，$补码$表示的整数和小数范围在负向分别多了一个值：$-2^n$和$-1$</p>
-<p>因为真值$0$只占用一个编码$000\cdots0$，另外一个在$原码$中表示$-0$的编码$100\cdots0$则用来表示值$-2^n$和$-1$(最小的数)</p>
-<h3 id="移码（n-1-位机器数">移码（n+1)位机器数</h3>
-<p>与$补码$相同</p>
-<h1>3.2 浮点数的机器数</h1>
-<h2 id="IEEE754标准32位">IEEE754标准32位</h2>
-<p>阶码为移码，偏移值要减$1$</p>
+<p><span class="math inline">\(-1\le X \le1-2^{-n}\)</span></p>
+<p>与<span class="math inline">\(原码\)</span>相比，<span class="math inline">\(补码\)</span>表示的整数和小数范围在负向分别多了一个值：<span class="math inline">\(-2^n\)</span>和<span class="math inline">\(-1\)</span></p>
+<p>因为真值<span class="math inline">\(0\)</span>只占用一个编码<span class="math inline">\(000\cdots0\)</span>，另外一个在<span class="math inline">\(原码\)</span>中表示<span class="math inline">\(-0\)</span>的编码<span class="math inline">\(100\cdots0\)</span>则用来表示值<span class="math inline">\(-2^n\)</span>和<span class="math inline">\(-1\)</span>(最小的数)</p>
+<h3 id="移码n1位机器数">移码（n+1)位机器数</h3>
+<p>与<span class="math inline">\(补码\)</span>相同</p>
+<h1 id="浮点数的机器数">3.2 浮点数的机器数</h1>
+<h2 id="ieee754标准32位">IEEE754标准32位</h2>
+<p>阶码为移码，偏移值要减<span class="math inline">\(1\)</span></p>
 <p>尾数为原码</p>
 <h3 id="格式">格式</h3>
-<p>$M_{s}$         $E_{s}$             $E_{1}E_{2}\cdots E_{m}$           $.$        $M_{1}M_{2}\cdots M_{n}$</p>
-<p>数符       阶符            阶码数值                              尾数数值</p>
+<p><span class="math inline">\(M_{s}\)</span> <span class="math inline">\(E_{s}\)</span> <span class="math inline">\(E_{1}E_{2}\cdots E_{m}\)</span> <span class="math inline">\(.\)</span> <span class="math inline">\(M_{1}M_{2}\cdots M_{n}\)</span></p>
+<p>数符 阶符 阶码数值 尾数数值</p>
 <p>尾数24位（含1位数符），阶码8位（含1位阶符）</p>
 <h3 id="真值计算">真值计算</h3>
-<p>$N=(-1)^{M_{s}}\times (1.M_{1}M_{2}\cdots M_{n})\times 2^{E-127}$</p>
-<p>其中$E$为阶码的无符号真值</p>
+<p><span class="math inline">\(N=(-1)^{M_{s}}\times (1.M_{1}M_{2}\cdots M_{n})\times 2^{E-127}\)</span></p>
+<p>其中<span class="math inline">\(E\)</span>为阶码的无符号真值</p>
 <h2 id="自定义格式下浮点数规格化的表示方法">自定义格式下浮点数规格化的表示方法</h2>
-<h3 id="原码-2">原码</h3>
-<p>原码表示的尾数，当最高有效位$（M_{1}）$为$1$时，浮点数规格化，即尾数为$X.1X\cdots X$</p>
-<h3 id="补码-2">补码</h3>
-<p>补码表示的尾数，当符号位$（M_{S}）$与最高有效位$（M_{1}）$相异时，浮点数规格化，即尾数为$0.1X\cdots X$或$1.0X\cdots X$</p>
+<h3 id="原码-1">原码</h3>
+<p>原码表示的尾数，当最高有效位<span class="math inline">\(（M_{1}）\)</span>为<span class="math inline">\(1\)</span>时，浮点数规格化，即尾数为<span class="math inline">\(X.1X\cdots X\)</span></p>
+<h3 id="补码-1">补码</h3>
+<p>补码表示的尾数，当符号位<span class="math inline">\(（M_{S}）\)</span>与最高有效位<span class="math inline">\(（M_{1}）\)</span>相异时，浮点数规格化，即尾数为<span class="math inline">\(0.1X\cdots X\)</span>或<span class="math inline">\(1.0X\cdots X\)</span></p>
 <p>当符号位与最高有效位相同时，必须左规</p>
-<h2 id="自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</h2>
+<h2 id="自定义格式下浮点数规格化非规格化表示描述的浮点数真值范围">自定义格式下浮点数规格化、非规格化表示，描述的浮点数真值范围</h2>
 <p>阶码为移码，尾数为补码</p>
 <h3 id="规格化表示范围">规格化表示范围</h3>
-<p>最小数             $-1\times2^{31}=-2^{31}$             $1,11111\quad 1.000000000$</p>
-<p>最大负数         $-(2^{-1}+2^{-9}\times2^{-32})$      $0,00000\quad 1.011111111$</p>
-<p>最小正数         $2^{-1}\times2^{-32}=2^{-33}$           $0,00000\quad 0.100000000$</p>
-<p>最大数             $(1-2^{-9}\times2^{31})$                 $1,11111\quad 0.111111111$</p>
+<p>最小数 <span class="math inline">\(-1\times2^{31}=-2^{31}\)</span> <span class="math inline">\(1,11111\quad 1.000000000\)</span></p>
+<p>最大负数 <span class="math inline">\(-(2^{-1}+2^{-9}\times2^{-32})\)</span> <span class="math inline">\(0,00000\quad 1.011111111\)</span></p>
+<p>最小正数 <span class="math inline">\(2^{-1}\times2^{-32}=2^{-33}\)</span> <span class="math inline">\(0,00000\quad 0.100000000\)</span></p>
+<p>最大数 <span class="math inline">\((1-2^{-9}\times2^{31})\)</span> <span class="math inline">\(1,11111\quad 0.111111111\)</span></p>
 <h3 id="非规格化表示范围">非规格化表示范围</h3>
-<p>最小数             $-1\times2^{31}=-2^{31}$             $1,11111\quad 1.000000000$</p>
-<p>最大负数         $-2^{-9}\times2^{-32}=-2^{-41}$    $0,00000\quad 1.111111111$</p>
-<p>最小正数         $2^{-9}\times2^{-32}=2^{-41}$           $0,00000\quad 0.000000001$</p>
-<p>最大数             $(1-2^{-9}\times2^{31})$                 $1,11111\quad 0.111111111$</p>
+<p>最小数 <span class="math inline">\(-1\times2^{31}=-2^{31}\)</span> <span class="math inline">\(1,11111\quad 1.000000000\)</span></p>
+<p>最大负数 <span class="math inline">\(-2^{-9}\times2^{-32}=-2^{-41}\)</span> <span class="math inline">\(0,00000\quad 1.111111111\)</span></p>
+<p>最小正数 <span class="math inline">\(2^{-9}\times2^{-32}=2^{-41}\)</span> <span class="math inline">\(0,00000\quad 0.000000001\)</span></p>
+<p>最大数 <span class="math inline">\((1-2^{-9}\times2^{31})\)</span> <span class="math inline">\(1,11111\quad 0.111111111\)</span></p>
 
           
         
@@ -1090,6 +1098,7 @@ $$</p>
         
           
             
+
           
         
       
@@ -1231,7 +1240,7 @@ $$</p>
         
           
             <h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/101">https://codeforces.com/problemsets/acmsguru/problem/99999/101</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemsets/acmsguru/problem/99999/101" class="uri">https://codeforces.com/problemsets/acmsguru/problem/99999/101</a></p>
 <h2 id="解题思路">解题思路</h2>
 <p>利用欧拉路径的性质</p>
 <p>若存在欧拉路径，当且仅当该图是连通的并且无奇度定点或奇度顶点只有两个</p>
@@ -1484,11 +1493,10 @@ $$</p>
       
         
           
-            <h3 id="Git报错解决：OpenSSL-SSL-read-Connection-was-reset-error-10054">Git报错解决：OpenSSL SSL_read:Connection was reset,error 10054</h3>
-<p>解决方法：<br>
-输入 git config - -global http.sslVerify “false”</p>
+            <h3 id="git报错解决openssl-ssl_readconnection-was-reseterror-10054">Git报错解决：OpenSSL SSL_read:Connection was reset,error 10054</h3>
+<p>解决方法： 输入 git config - -global http.sslVerify "false"</p>
 <h3 id="参考链接">参考链接</h3>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29493173/article/details/114534057?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163650906516780265417597%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=163650906516780265417597&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-114534057.first_rank_v2_pc_rank_v29&amp;utm_term=OpenSSL+SSL_read%3A+Connection+was+reset%2C+errno+10054&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/qq_29493173/article/details/114534057?ops_request_misc=%7B%22request%5Fid%22%3A%22163650906516780265417597%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=163650906516780265417597&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-114534057.first_rank_v2_pc_rank_v29&amp;utm_term=OpenSSL+SSL_read%3A+Connection+was+reset%2C+errno+10054&amp;spm=1018.2226.3001.4187</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29493173/article/details/114534057?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163650906516780265417597%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=163650906516780265417597&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-114534057.first_rank_v2_pc_rank_v29&amp;utm_term=OpenSSL+SSL_read%3A+Connection+was+reset%2C+errno+10054&amp;spm=1018.2226.3001.4187" class="uri">https://blog.csdn.net/qq_29493173/article/details/114534057?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163650906516780265417597%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=163650906516780265417597&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-114534057.first_rank_v2_pc_rank_v29&amp;utm_term=OpenSSL+SSL_read%3A+Connection+was+reset%2C+errno+10054&amp;spm=1018.2226.3001.4187</a></p>
 
           
         
