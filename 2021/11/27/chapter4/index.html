@@ -87,8 +87,10 @@
 <meta property="og:description" content="定点整数的运算 补码加减运算公式 \([X+Y]_补&#x3D;[X]_补+[Y]_补\quad (mod\quad 2^{n+1})\) \([X-Y]_补&#x3D;[X]_补+[-Y]_补\quad (mod\quad 2^{n+1})\) 若\([Y]_补&#x3D;Y_0,Y_1\cdots Y_n\)，则\([-Y]_补&#x3D;\overline Y_0\overline Y_1\cdots \overline">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://fishcy.github.io/2021/11/27/src/单总线.jpg">
+<meta property="og:image" content="https://fishcy.github.io/2021/11/27/src/双总线.jpg">
+<meta property="og:image" content="https://fishcy.github.io/2021/11/27/src/三总线.jpg">
 <meta property="article:published_time" content="2021-11-27T13:36:07.000Z">
-<meta property="article:modified_time" content="2021-11-28T04:23:59.257Z">
+<meta property="article:modified_time" content="2021-11-28T05:08:50.369Z">
 <meta property="article:author" content="fishcy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://fishcy.github.io/2021/11/27/src/单总线.jpg">
@@ -372,6 +374,39 @@
 <figure>
 <img src="..\src\单总线.jpg" alt="单总线" /><figcaption aria-hidden="true">单总线</figcaption>
 </figure>
+<h4 id="结构一">结构一</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow LB:通过发送信号R_j\rightarrow IB、IB\rightarrow LB来实现\)</span></li>
+<li><span class="math inline">\(ALU运算，结果\rightarrow R_j;通过发送信号C\_OP(\theta)、ALU\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
+</ul>
+<h4 id="结构二">结构二</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow IB，ALU运算，结果\rightarrow LC：通过发送信号R_j\rightarrow IB、C\_OP(\theta)、ALU\rightarrow LC来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k:通过发送信号LC\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
+</ul>
+<h3 id="双总线结构">双总线结构</h3>
+<figure>
+<img src="..\src\双总线.jpg" alt="双总线" /><figcaption aria-hidden="true">双总线</figcaption>
+</figure>
+<h4 id="结构一-1">结构一</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，结果\rightarrow LC：通过发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow LC来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k：通过发送信号LC\rightarrow IB1、IB1\rightarrow LA来实现\)</span></li>
+</ul>
+<h4 id="结构二-1">结构二</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow LA：通过发送信号R_i\rightarrow IB1、IB1\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow IB2，ALU运算，IB1\rightarrow R_k：通过发送信号R_j\rightarrow IB2、C\_OP(\theta)、ALU\rightarrow IB1、IB1\rightarrow R_k来实现\)</span></li>
+</ul>
+<h3 id="三总线结构">三总线结构</h3>
+<figure>
+<img src="..\src\三总线.jpg" alt="三总线" /><figcaption aria-hidden="true">三总线</figcaption>
+</figure>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，IB3\rightarrow R_k：需要发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow IB3、IB3\rightarrow R_k\)</span></li>
+</ul>
 
       
     </div>
@@ -536,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">定点整数的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">补码加减运算公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E5%8A%A0%E6%B3%95%E5%87%8F%E6%B3%95%E7%9A%84%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E7%9A%84%E6%BA%A2%E5%87%BA%E6%A3%80%E6%B5%8B%E5%88%A4%E6%96%AD"><span class="nav-number">1.2.</span> <span class="nav-text">定点数加法&#x2F;减法的运算方法的溢出检测判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E4%BD%8D%E5%88%A4%E6%BA%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">进位判溢方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E7%AC%A6%E5%8F%B7%E4%BD%8D%E5%88%A4%E6%BA%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">双符号位判溢方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BD%8D%E7%A7%BB"><span class="nav-number">1.2.3.</span> <span class="nav-text">逻辑位移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E7%A7%BB%E4%BD%8D"><span class="nav-number">1.2.4.</span> <span class="nav-text">算术移位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">原码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">补码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">反码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E9%98%B5%E5%88%97%E4%B9%98%E6%B3%95%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.5.</span> <span class="nav-text">定点整数无符号阵列乘法器的原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">定点运算器的组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84%E4%B8%8B%E5%AE%9A%E7%82%B9%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E8%BF%90%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.</span> <span class="nav-text">三种不同总线结构下定点运算器的运算步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">单总线结构</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">定点整数的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">补码加减运算公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E5%8A%A0%E6%B3%95%E5%87%8F%E6%B3%95%E7%9A%84%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E7%9A%84%E6%BA%A2%E5%87%BA%E6%A3%80%E6%B5%8B%E5%88%A4%E6%96%AD"><span class="nav-number">1.2.</span> <span class="nav-text">定点数加法&#x2F;减法的运算方法的溢出检测判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E4%BD%8D%E5%88%A4%E6%BA%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.1.</span> <span class="nav-text">进位判溢方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E7%AC%A6%E5%8F%B7%E4%BD%8D%E5%88%A4%E6%BA%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">双符号位判溢方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%BD%8D%E7%A7%BB"><span class="nav-number">1.2.3.</span> <span class="nav-text">逻辑位移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E7%A7%BB%E4%BD%8D"><span class="nav-number">1.2.4.</span> <span class="nav-text">算术移位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">原码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">补码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">反码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0%E6%97%A0%E7%AC%A6%E5%8F%B7%E9%98%B5%E5%88%97%E4%B9%98%E6%B3%95%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.5.</span> <span class="nav-text">定点整数无符号阵列乘法器的原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">定点运算器的组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E4%B8%8D%E5%90%8C%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84%E4%B8%8B%E5%AE%9A%E7%82%B9%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E8%BF%90%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.</span> <span class="nav-text">三种不同总线结构下定点运算器的运算步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">单总线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%B8%80"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">结构一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BA%8C"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">结构二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">双总线结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%B8%80-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">结构一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BA%8C-1"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">结构二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.3.</span> <span class="nav-text">三总线结构</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

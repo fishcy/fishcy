@@ -371,6 +371,39 @@
 <figure>
 <img src="..\src\单总线.jpg" alt="单总线" /><figcaption aria-hidden="true">单总线</figcaption>
 </figure>
+<h4 id="结构一">结构一</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow LB:通过发送信号R_j\rightarrow IB、IB\rightarrow LB来实现\)</span></li>
+<li><span class="math inline">\(ALU运算，结果\rightarrow R_j;通过发送信号C\_OP(\theta)、ALU\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
+</ul>
+<h4 id="结构二">结构二</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow IB，ALU运算，结果\rightarrow LC：通过发送信号R_j\rightarrow IB、C\_OP(\theta)、ALU\rightarrow LC来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k:通过发送信号LC\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
+</ul>
+<h3 id="双总线结构">双总线结构</h3>
+<figure>
+<img src="..\src\双总线.jpg" alt="双总线" /><figcaption aria-hidden="true">双总线</figcaption>
+</figure>
+<h4 id="结构一-1">结构一</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，结果\rightarrow LC：通过发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow LC来实现\)</span></li>
+<li><span class="math inline">\((LC)\rightarrow R_k：通过发送信号LC\rightarrow IB1、IB1\rightarrow LA来实现\)</span></li>
+</ul>
+<h4 id="结构二-1">结构二</h4>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow LA：通过发送信号R_i\rightarrow IB1、IB1\rightarrow LA来实现\)</span></li>
+<li><span class="math inline">\((R_j)\rightarrow IB2，ALU运算，IB1\rightarrow R_k：通过发送信号R_j\rightarrow IB2、C\_OP(\theta)、ALU\rightarrow IB1、IB1\rightarrow R_k来实现\)</span></li>
+</ul>
+<h3 id="三总线结构">三总线结构</h3>
+<figure>
+<img src="..\src\三总线.jpg" alt="三总线" /><figcaption aria-hidden="true">三总线</figcaption>
+</figure>
+<ul>
+<li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，IB3\rightarrow R_k：需要发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow IB3、IB3\rightarrow R_k\)</span></li>
+</ul>
 
           
         
