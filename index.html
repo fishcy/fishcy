@@ -554,7 +554,9 @@
 <h1 id="定点运算器的组成与结构">定点运算器的组成与结构</h1>
 <h2 id="三种不同总线结构下定点运算器的运算步骤">三种不同总线结构下定点运算器的运算步骤</h2>
 <h3 id="单总线结构">单总线结构</h3>
-<img src="/2021/11/27/chapter4/%E5%8D%95%E6%80%BB%E7%BA%BF.jpg" class title="单总线">
+<figure>
+<img src="/2021/11/27/chapter4/单总线.jpg" alt="单总线"><figcaption aria-hidden="true">单总线</figcaption>
+</figure>
 <h4 id="结构一">结构一</h4>
 <ul>
 <li><span class="math inline">\((R_i)\rightarrow LA:通过发送信号R_i\rightarrow IB、IB\rightarrow LA来实现\)</span></li>
@@ -568,7 +570,9 @@
 <li><span class="math inline">\((LC)\rightarrow R_k:通过发送信号LC\rightarrow IB、IB\rightarrow R_k来实现\)</span></li>
 </ul>
 <h3 id="双总线结构">双总线结构</h3>
-<img src="/2021/11/27/chapter4/%E5%8F%8C%E6%80%BB%E7%BA%BF.jpg" class title="双总线">
+<figure>
+<img src="/2021/11/27/chapter4/双总线.jpg" alt="双总线"><figcaption aria-hidden="true">双总线</figcaption>
+</figure>
 <h4 id="结构一-1">结构一</h4>
 <ul>
 <li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，结果\rightarrow LC：通过发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow LC来实现\)</span></li>
@@ -580,7 +584,9 @@
 <li><span class="math inline">\((R_j)\rightarrow IB2，ALU运算，IB1\rightarrow R_k：通过发送信号R_j\rightarrow IB2、C\_OP(\theta)、ALU\rightarrow IB1、IB1\rightarrow R_k来实现\)</span></li>
 </ul>
 <h3 id="三总线结构">三总线结构</h3>
-<img src="/2021/11/27/chapter4/%E4%B8%89%E6%80%BB%E7%BA%BF.jpg" class title="三总线">
+<figure>
+<img src="/2021/11/27/chapter4/三总线.jpg" alt="三总线"><figcaption aria-hidden="true">三总线</figcaption>
+</figure>
 <ul>
 <li><span class="math inline">\((R_i)\rightarrow IB1，(R_j)\rightarrow IB2，ALU运算，IB3\rightarrow R_k：需要发送信号R_i\rightarrow IB1、R_j\rightarrow IB2、C\_OP(\theta)、\\ALU\rightarrow IB3、IB3\rightarrow R_k\)</span></li>
 </ul>
