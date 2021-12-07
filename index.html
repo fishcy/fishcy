@@ -597,6 +597,22 @@
 </ul>
 <h1 id="浮点数加法减法的运算">浮点数加法/减法的运算</h1>
 <h2 id="自定义规格化表示的浮点数运算的5个经典步骤">自定义规格化表示的浮点数运算的5个经典步骤</h2>
+<h3 id="操作数检查">1.<span class="math inline">\(0\)</span>操作数检查</h3>
+<h3 id="对阶">2.对阶</h3>
+<ul>
+<li>比较两个数的阶码<span class="math inline">\(E_X\)</span>和<span class="math inline">\(E_Y\)</span>是否相等，即求<span class="math inline">\(\Delta E=E_X-E_Y\)</span>，若<span class="math inline">\(\Delta E=0\)</span>，则<span class="math inline">\(E_X=E_Y\)</span>，若<span class="math inline">\(\Delta E\neq 0\)</span>，则<span class="math inline">\(E_X\neq E_Y\)</span>，要进行对阶操作</li>
+<li>若<span class="math inline">\(\Delta E&gt;0\)</span>，则<span class="math inline">\(E_X&gt;E_Y\)</span>，<span class="math inline">\(M_Y\)</span>每右移一位，<span class="math inline">\(E_Y+1\)</span>，直至<span class="math inline">\(E_X=E_Y\)</span></li>
+<li>若<span class="math inline">\(\Delta E&lt;0\)</span>，则<span class="math inline">\(E_X&lt;E_Y\)</span>，<span class="math inline">\(M_X\)</span>每右移一位，<span class="math inline">\(E_X+1\)</span>，直至<span class="math inline">\(E_X=E_Y\)</span></li>
+<li>小阶向大阶对齐，原因：小阶对大阶时，右移小阶的尾数舍去的是尾数的低位。大阶对小阶时，必须左移大阶的尾数，舍去的是尾数的高位。即小阶对大阶更能保证精度</li>
+</ul>
+<h3 id="尾数相加减">3.尾数相加减</h3>
+<h3 id="结果规格化">4.结果规格化</h3>
+<h4 id="情况一">情况一</h4>
+<p>尾数溢出时，需要右规，即尾数右移一位，阶码加一，注意只需右规一位即可</p>
+<h4 id="情况二">情况二</h4>
+<p>当<span class="math inline">\(符号位=最高有效位\)</span>时，左规，直到不相等，每移一位，阶码减一</p>
+<h4 id="阶码上溢时报错阶码下溢时将浮点数视为机器零">阶码上溢时，报错，阶码下溢时，将浮点数视为机器零</h4>
+<h3 id="舍入处理">5.舍入处理</h3>
 
           
         
